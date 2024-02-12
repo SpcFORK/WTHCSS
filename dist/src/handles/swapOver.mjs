@@ -1,0 +1,17 @@
+// src/WTFCss/src/functions/calc.js
+var calc = (payload) => `calc(${payload})`;
+var calc_default = calc;
+
+// src/WTFCss/src/handles/swapOver.js
+var swapOver = (a, b) => (Aover, Bover) => [
+  calc_default(
+    `${Bover} * ${a} + ${Aover} * ${b});`
+  ),
+  calc_default(
+    `${Aover} * ${a} + ${Bover} * ${b});`
+  )
+];
+export {
+  swapOver
+};
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsiLi4vLi4vLi4vc3JjL1dURkNzcy9zcmMvZnVuY3Rpb25zL2NhbGMuanMiLCAiLi4vLi4vLi4vc3JjL1dURkNzcy9zcmMvaGFuZGxlcy9zd2FwT3Zlci5qcyJdLAogICJzb3VyY2VzQ29udGVudCI6IFsiLyoqXG4gKiBDYWxjdWxhdGUgYSBDU1MgY2FsYygpIGV4cHJlc3Npb24uXG4gKiBAcGFyYW0ge3N0cmluZ30gcGF5bG9hZCAtIFRoZSBleHByZXNzaW9uIHRvIGJlIGNhbGN1bGF0ZWQuXG4gKiBAcmV0dXJucyB7c3RyaW5nfSBUaGUgY2FsY3VsYXRlZCBDU1MgZXhwcmVzc2lvbi5cbiAqL1xuZXhwb3J0IGNvbnN0IGNhbGMgPSBwYXlsb2FkID0+IGBjYWxjKCR7cGF5bG9hZH0pYFxuZXhwb3J0IGRlZmF1bHQgY2FsYyIsICJpbXBvcnQgeyBjYWxjIH0gZnJvbSAnLi4vZnVuY3Rpb25zL2luZGV4LmpzJztcblxuZXhwb3J0IGNvbnN0IHN3YXBPdmVyID0gKGEsIGIpID0+IChBb3ZlciwgQm92ZXIpID0+IFtcbiAgY2FsYyhcbiAgICBgJHtCb3Zlcn0gKiAke2F9ICsgJHtBb3Zlcn0gKiAke2J9KTtgXG4gICksXG4gIGNhbGMoXG4gICAgYCR7QW92ZXJ9ICogJHthfSArICR7Qm92ZXJ9ICogJHtifSk7YFxuICApXG5dIl0sCiAgIm1hcHBpbmdzIjogIjtBQUtPLElBQU0sT0FBTyxhQUFXLFFBQVEsT0FBTztBQUM5QyxJQUFPLGVBQVE7OztBQ0pSLElBQU0sV0FBVyxDQUFDLEdBQUcsTUFBTSxDQUFDLE9BQU8sVUFBVTtBQUFBLEVBQ2xEO0FBQUEsSUFDRSxHQUFHLEtBQUssTUFBTSxDQUFDLE1BQU0sS0FBSyxNQUFNLENBQUM7QUFBQSxFQUNuQztBQUFBLEVBQ0E7QUFBQSxJQUNFLEdBQUcsS0FBSyxNQUFNLENBQUMsTUFBTSxLQUFLLE1BQU0sQ0FBQztBQUFBLEVBQ25DO0FBQ0Y7IiwKICAibmFtZXMiOiBbXQp9Cg==

@@ -1,0 +1,8 @@
+// src/WTFCss/src/functions/max.js
+var max = (...args) => `max(${args.join(", ")})`;
+var max_default = max;
+export {
+  max_default as default,
+  max
+};
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsiLi4vLi4vLi4vc3JjL1dURkNzcy9zcmMvZnVuY3Rpb25zL21heC5qcyJdLAogICJzb3VyY2VzQ29udGVudCI6IFsiLyoqXG4gKiBDYWxjdWxhdGVzIHRoZSBtYXhpbXVtIHZhbHVlIGZyb20gdGhlIGdpdmVuIGFyZ3VtZW50cy5cbiAqIEBwYXJhbSB7Li4uYXJnc30gYXJncyAtIEEgc2V0IG9mIG51bWVyaWMgdmFsdWVzLlxuICogQHJldHVybnMge3N0cmluZ30gVGhlIGNvbnN0cnVjdGVkIENTUyBtYXgoKSBmdW5jdGlvbiBzdHJpbmcuXG4gKi9cbmV4cG9ydCBjb25zdCBtYXggPSAoLi4uYXJncykgPT4gYG1heCgke2FyZ3Muam9pbignLCAnKX0pYFxuZXhwb3J0IGRlZmF1bHQgbWF4Il0sCiAgIm1hcHBpbmdzIjogIjtBQUtPLElBQU0sTUFBTSxJQUFJLFNBQVMsT0FBTyxLQUFLLEtBQUssSUFBSSxDQUFDO0FBQ3RELElBQU8sY0FBUTsiLAogICJuYW1lcyI6IFtdCn0K

@@ -1,0 +1,11 @@
+// src/WTFCss/script.js
+function wtfTest(e) {
+  console.log(WTFCSS.stylesheet.handles);
+  let { orGate } = WTFCSS.stylesheet.handles;
+  console.log(orGate(1, 0));
+}
+window.addEventListener(
+  "wtfcss:loaded",
+  wtfTest
+);
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsiLi4vc3JjL1dURkNzcy9zY3JpcHQuanMiXSwKICAic291cmNlc0NvbnRlbnQiOiBbImZ1bmN0aW9uIHd0ZlRlc3QoZSkge1xuICBjb25zb2xlLmxvZyhXVEZDU1Muc3R5bGVzaGVldC5oYW5kbGVzKTtcbiAgbGV0IHsgb3JHYXRlIH0gPSBXVEZDU1Muc3R5bGVzaGVldC5oYW5kbGVzO1xuICBjb25zb2xlLmxvZyhvckdhdGUoMSwgMCkpO1xufVxuXG53aW5kb3cuYWRkRXZlbnRMaXN0ZW5lcihcbiAgJ3d0ZmNzczpsb2FkZWQnLCBcbiAgd3RmVGVzdFxuKSJdLAogICJtYXBwaW5ncyI6ICI7QUFBQSxTQUFTLFFBQVEsR0FBRztBQUNsQixVQUFRLElBQUksT0FBTyxXQUFXLE9BQU87QUFDckMsTUFBSSxFQUFFLE9BQU8sSUFBSSxPQUFPLFdBQVc7QUFDbkMsVUFBUSxJQUFJLE9BQU8sR0FBRyxDQUFDLENBQUM7QUFDMUI7QUFFQSxPQUFPO0FBQUEsRUFDTDtBQUFBLEVBQ0E7QUFDRjsiLAogICJuYW1lcyI6IFtdCn0K

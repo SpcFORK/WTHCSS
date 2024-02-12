@@ -1,0 +1,8 @@
+// src/WTFCss/src/functions/log.js
+var log = (value) => `log(${value})`;
+var log_default = log;
+export {
+  log_default as default,
+  log
+};
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsiLi4vLi4vLi4vc3JjL1dURkNzcy9zcmMvZnVuY3Rpb25zL2xvZy5qcyJdLAogICJzb3VyY2VzQ29udGVudCI6IFsiLyoqXG4gKiBDYWxjdWxhdGVzIHRoZSBsb2dhcml0aG0gb2YgYSB2YWx1ZS5cbiAqIEBwYXJhbSB7bnVtYmVyfSB2YWx1ZSAtIFRoZSB2YWx1ZSB0byBjYWxjdWxhdGUgdGhlIGxvZ2FyaXRobSBmb3IuXG4gKiBAcmV0dXJucyB7c3RyaW5nfSBUaGUgY29uc3RydWN0ZWQgQ1NTIGxvZygpIGZ1bmN0aW9uIHN0cmluZy5cbiAqL1xuZXhwb3J0IGNvbnN0IGxvZyA9IHZhbHVlID0+IGBsb2coJHt2YWx1ZX0pYFxuZXhwb3J0IGRlZmF1bHQgbG9nIl0sCiAgIm1hcHBpbmdzIjogIjtBQUtPLElBQU0sTUFBTSxXQUFTLE9BQU8sS0FBSztBQUN4QyxJQUFPLGNBQVE7IiwKICAibmFtZXMiOiBbXQp9Cg==

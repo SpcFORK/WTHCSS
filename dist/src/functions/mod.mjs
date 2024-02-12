@@ -1,0 +1,8 @@
+// src/WTFCss/src/functions/mod.js
+var mod = (a, b) => `mod(${a}, ${b})`;
+var mod_default = mod;
+export {
+  mod_default as default,
+  mod
+};
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsiLi4vLi4vLi4vc3JjL1dURkNzcy9zcmMvZnVuY3Rpb25zL21vZC5qcyJdLAogICJzb3VyY2VzQ29udGVudCI6IFsiLyoqXG4gKiBDYWxjdWxhdGVzIHRoZSBtb2R1bHVzIG9mIHR3byBudW1iZXJzLlxuICogQHBhcmFtIHtudW1iZXJ9IGEgLSBUaGUgZGl2aWRlbmQuXG4gKiBAcGFyYW0ge251bWJlcn0gYiAtIFRoZSBkaXZpc29yLlxuICogQHJldHVybnMge3N0cmluZ30gVGhlIGNvbnN0cnVjdGVkIENTUyBtb2QoKSBmdW5jdGlvbiBzdHJpbmcuXG4gKi9cbmV4cG9ydCBjb25zdCBtb2QgPSAoYSwgYikgPT4gYG1vZCgke2F9LCAke2J9KWA7XG5leHBvcnQgZGVmYXVsdCBtb2Q7Il0sCiAgIm1hcHBpbmdzIjogIjtBQU1PLElBQU0sTUFBTSxDQUFDLEdBQUcsTUFBTSxPQUFPLENBQUMsS0FBSyxDQUFDO0FBQzNDLElBQU8sY0FBUTsiLAogICJuYW1lcyI6IFtdCn0K

@@ -1,0 +1,8 @@
+// src/WTFCss/src/functions/acos.js
+var acos = (payload) => `acos(${payload})`;
+var acos_default = acos;
+export {
+  acos,
+  acos_default as default
+};
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsiLi4vLi4vLi4vc3JjL1dURkNzcy9zcmMvZnVuY3Rpb25zL2Fjb3MuanMiXSwKICAic291cmNlc0NvbnRlbnQiOiBbIi8qKlxuICogQ2FsY3VsYXRlIHRoZSBhcmNjb3NpbmUgdmFsdWUuXG4gKiBAcGFyYW0ge251bWJlcnxzdHJpbmd9IHBheWxvYWQgLSBUaGUgdmFsdWUgdG8gYmUgcHJvY2Vzc2VkLlxuICogQHJldHVybnMge3N0cmluZ30gVGhlIGFyY2Nvc2luZSBleHByZXNzaW9uIGZvciBDU1MuXG4gKi9cbmV4cG9ydCBjb25zdCBhY29zID0gcGF5bG9hZCA9PiBgYWNvcygke3BheWxvYWR9KWBcbmV4cG9ydCBkZWZhdWx0IGFjb3MiXSwKICAibWFwcGluZ3MiOiAiO0FBS08sSUFBTSxPQUFPLGFBQVcsUUFBUSxPQUFPO0FBQzlDLElBQU8sZUFBUTsiLAogICJuYW1lcyI6IFtdCn0K

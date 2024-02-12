@@ -1,0 +1,8 @@
+// src/WTFCss/src/functions/exp.js
+var exp = (value) => `exp(${value})`;
+var exp_default = exp;
+export {
+  exp_default as default,
+  exp
+};
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsiLi4vLi4vLi4vc3JjL1dURkNzcy9zcmMvZnVuY3Rpb25zL2V4cC5qcyJdLAogICJzb3VyY2VzQ29udGVudCI6IFsiLyoqXG4gKiBDYWxjdWxhdGVzIHRoZSBleHBvbmVudGlhbCBmdW5jdGlvbi5cbiAqIEBwYXJhbSB7bnVtYmVyfHN0cmluZ30gdmFsdWUgLSBUaGUgZXhwb25lbnQgdG8gcmFpc2UgZSB0by5cbiAqIEByZXR1cm5zIHtzdHJpbmd9IFRoZSBDU1MgZXhwb25lbnRpYWwgZnVuY3Rpb24gc3RyaW5nLlxuICovXG5leHBvcnQgY29uc3QgZXhwID0gdmFsdWUgPT4gYGV4cCgke3ZhbHVlfSlgXG5cbmV4cG9ydCBkZWZhdWx0IGV4cCJdLAogICJtYXBwaW5ncyI6ICI7QUFLTyxJQUFNLE1BQU0sV0FBUyxPQUFPLEtBQUs7QUFFeEMsSUFBTyxjQUFROyIsCiAgIm5hbWVzIjogW10KfQo=

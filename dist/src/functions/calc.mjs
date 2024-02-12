@@ -1,0 +1,8 @@
+// src/WTFCss/src/functions/calc.js
+var calc = (payload) => `calc(${payload})`;
+var calc_default = calc;
+export {
+  calc,
+  calc_default as default
+};
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsiLi4vLi4vLi4vc3JjL1dURkNzcy9zcmMvZnVuY3Rpb25zL2NhbGMuanMiXSwKICAic291cmNlc0NvbnRlbnQiOiBbIi8qKlxuICogQ2FsY3VsYXRlIGEgQ1NTIGNhbGMoKSBleHByZXNzaW9uLlxuICogQHBhcmFtIHtzdHJpbmd9IHBheWxvYWQgLSBUaGUgZXhwcmVzc2lvbiB0byBiZSBjYWxjdWxhdGVkLlxuICogQHJldHVybnMge3N0cmluZ30gVGhlIGNhbGN1bGF0ZWQgQ1NTIGV4cHJlc3Npb24uXG4gKi9cbmV4cG9ydCBjb25zdCBjYWxjID0gcGF5bG9hZCA9PiBgY2FsYygke3BheWxvYWR9KWBcbmV4cG9ydCBkZWZhdWx0IGNhbGMiXSwKICAibWFwcGluZ3MiOiAiO0FBS08sSUFBTSxPQUFPLGFBQVcsUUFBUSxPQUFPO0FBQzlDLElBQU8sZUFBUTsiLAogICJuYW1lcyI6IFtdCn0K

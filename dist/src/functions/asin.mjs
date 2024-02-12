@@ -1,0 +1,8 @@
+// src/WTFCss/src/functions/asin.js
+var asin = (payload) => `asin(${payload})`;
+var asin_default = asin;
+export {
+  asin,
+  asin_default as default
+};
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsiLi4vLi4vLi4vc3JjL1dURkNzcy9zcmMvZnVuY3Rpb25zL2FzaW4uanMiXSwKICAic291cmNlc0NvbnRlbnQiOiBbIi8qKlxuICogQ2FsY3VsYXRlIHRoZSBhcmNzaW5lIHZhbHVlLlxuICogQHBhcmFtIHtudW1iZXJ8c3RyaW5nfSBwYXlsb2FkIC0gVGhlIHZhbHVlIHRvIGJlIHByb2Nlc3NlZC5cbiAqIEByZXR1cm5zIHtzdHJpbmd9IFRoZSBhcmNzaW5lIGV4cHJlc3Npb24gZm9yIENTUy5cbiAqL1xuZXhwb3J0IGNvbnN0IGFzaW4gPSBwYXlsb2FkID0+IGBhc2luKCR7cGF5bG9hZH0pYFxuZXhwb3J0IGRlZmF1bHQgYXNpbiJdLAogICJtYXBwaW5ncyI6ICI7QUFLTyxJQUFNLE9BQU8sYUFBVyxRQUFRLE9BQU87QUFDOUMsSUFBTyxlQUFROyIsCiAgIm5hbWVzIjogW10KfQo=

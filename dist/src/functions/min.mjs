@@ -1,0 +1,8 @@
+// src/WTFCss/src/functions/min.js
+var min = (...args) => `min(${args.join(", ")})`;
+var min_default = min;
+export {
+  min_default as default,
+  min
+};
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsiLi4vLi4vLi4vc3JjL1dURkNzcy9zcmMvZnVuY3Rpb25zL21pbi5qcyJdLAogICJzb3VyY2VzQ29udGVudCI6IFsiXG4vKipcbiAqIENhbGN1bGF0ZXMgdGhlIG1pbmltdW0gdmFsdWUgZnJvbSB0aGUgZ2l2ZW4gYXJndW1lbnRzLlxuICogQHBhcmFtIHsuLi5hcmdzfSAtIEEgc2V0IG9mIG51bWVyaWMgdmFsdWVzLlxuICogQHJldHVybnMge3N0cmluZ30gVGhlIGNvbnN0cnVjdGVkIENTUyBtaW4oKSBmdW5jdGlvbiBzdHJpbmcuXG4gKi9cbmV4cG9ydCBjb25zdCBtaW4gPSAoLi4uYXJncykgPT4gYG1pbigke2FyZ3Muam9pbignLCAnKX0pYFxuZXhwb3J0IGRlZmF1bHQgbWluIl0sCiAgIm1hcHBpbmdzIjogIjtBQU1PLElBQU0sTUFBTSxJQUFJLFNBQVMsT0FBTyxLQUFLLEtBQUssSUFBSSxDQUFDO0FBQ3RELElBQU8sY0FBUTsiLAogICJuYW1lcyI6IFtdCn0K

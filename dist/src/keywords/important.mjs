@@ -1,0 +1,8 @@
+// src/WTFCss/src/keywords/important.js
+var important = (_) => `!important;`;
+var important_default = important;
+export {
+  important_default as default,
+  important
+};
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsiLi4vLi4vLi4vc3JjL1dURkNzcy9zcmMva2V5d29yZHMvaW1wb3J0YW50LmpzIl0sCiAgInNvdXJjZXNDb250ZW50IjogWyJleHBvcnQgY29uc3QgaW1wb3J0YW50ID0gXyA9PiBgIWltcG9ydGFudDtgXG5leHBvcnQgZGVmYXVsdCBpbXBvcnRhbnQiXSwKICAibWFwcGluZ3MiOiAiO0FBQU8sSUFBTSxZQUFZLE9BQUs7QUFDOUIsSUFBTyxvQkFBUTsiLAogICJuYW1lcyI6IFtdCn0K

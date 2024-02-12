@@ -1,0 +1,6 @@
+// src/WTFCss/replit_zip_error_log.txt
+var replit_zip_error_log_default = '{"error":".zip archives do not support non-regular files","level":"error","msg":"unable to write file .cache/replit/modules/replit:v4-20240206-fdbd396","time":"2024-02-12T16:25:08Z"}\n{"error":".zip archives do not support non-regular files","level":"error","msg":"unable to write file .cache/replit/modules/web:v6-20240206-fdbd396","time":"2024-02-12T16:25:08Z"}\n';
+export {
+  replit_zip_error_log_default as default
+};
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsiLi4vc3JjL1dURkNzcy9yZXBsaXRfemlwX2Vycm9yX2xvZy50eHQiXSwKICAic291cmNlc0NvbnRlbnQiOiBbIntcImVycm9yXCI6XCIuemlwIGFyY2hpdmVzIGRvIG5vdCBzdXBwb3J0IG5vbi1yZWd1bGFyIGZpbGVzXCIsXCJsZXZlbFwiOlwiZXJyb3JcIixcIm1zZ1wiOlwidW5hYmxlIHRvIHdyaXRlIGZpbGUgLmNhY2hlL3JlcGxpdC9tb2R1bGVzL3JlcGxpdDp2NC0yMDI0MDIwNi1mZGJkMzk2XCIsXCJ0aW1lXCI6XCIyMDI0LTAyLTEyVDE2OjI1OjA4WlwifVxue1wiZXJyb3JcIjpcIi56aXAgYXJjaGl2ZXMgZG8gbm90IHN1cHBvcnQgbm9uLXJlZ3VsYXIgZmlsZXNcIixcImxldmVsXCI6XCJlcnJvclwiLFwibXNnXCI6XCJ1bmFibGUgdG8gd3JpdGUgZmlsZSAuY2FjaGUvcmVwbGl0L21vZHVsZXMvd2ViOnY2LTIwMjQwMjA2LWZkYmQzOTZcIixcInRpbWVcIjpcIjIwMjQtMDItMTJUMTY6MjU6MDhaXCJ9XG4iXSwKICAibWFwcGluZ3MiOiAiO0FBQUE7IiwKICAibmFtZXMiOiBbXQp9Cg==

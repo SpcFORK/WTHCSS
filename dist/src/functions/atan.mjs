@@ -1,0 +1,8 @@
+// src/WTFCss/src/functions/atan.js
+var atan = (payload) => `atan(${payload})`;
+var atan_default = atan;
+export {
+  atan,
+  atan_default as default
+};
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsiLi4vLi4vLi4vc3JjL1dURkNzcy9zcmMvZnVuY3Rpb25zL2F0YW4uanMiXSwKICAic291cmNlc0NvbnRlbnQiOiBbIi8qKlxuICogQ2FsY3VsYXRlIHRoZSBhcmN0YW5nZW50IHZhbHVlLlxuICogQHBhcmFtIHtudW1iZXJ8c3RyaW5nfSBwYXlsb2FkIC0gVGhlIHZhbHVlIHRvIGJlIHByb2Nlc3NlZC5cbiAqIEByZXR1cm5zIHtzdHJpbmd9IFRoZSBhcmN0YW5nZW50IGV4cHJlc3Npb24gZm9yIENTUy5cbiAqL1xuZXhwb3J0IGNvbnN0IGF0YW4gPSBwYXlsb2FkID0+IGBhdGFuKCR7cGF5bG9hZH0pYFxuZXhwb3J0IGRlZmF1bHQgYXRhbiJdLAogICJtYXBwaW5ncyI6ICI7QUFLTyxJQUFNLE9BQU8sYUFBVyxRQUFRLE9BQU87QUFDOUMsSUFBTyxlQUFROyIsCiAgIm5hbWVzIjogW10KfQo=

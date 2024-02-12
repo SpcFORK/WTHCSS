@@ -1,0 +1,289 @@
+No, you didn't read that title wrong.
+
+It is possible to build a neural network in pure CSS. I made a cool demo and everything!
+
+However, training that neural network is next to impossible (with CSS) due to limitations on how many calc() statements you can have that rely on previous ones! So we won't do that here!
+
+Now, the point of this article is not to advocate for building neural networks in CSS (you shouldn't), but instead to introduce you to a couple of CSS tricks I had to use to get this to work!
+
+Read this first
+Now, if you haven't already read it, I would recommend reading my previous article (or at least checking out the demo) where I built a neural network in vanilla JS.
+
+The reason being, this is the exact same neural network, but without all the training abilities sadly.
+
+Other than that, let's jump right in!
+
+Show me the money Code!
+Here it is:
+:root{
+
+    --inputX: 0.9;
+    --inputY: -1;
+    --output1: 0;
+    --output2: 0;
+    --output3: 0;
+    --output4: 0;
+
+    --output1bias: 0.006412765611663633;
+    --output2bias: 0.007072853542676219;
+    --output3bias: 0.0064746685639952214;
+    --output4bias: 0.004851470988693036;
+
+    --weights1-1: -0.9807254999119579;
+    --weights1-2: 0.9813663133332142;
+    --weights1-3: -0.9817224902785696;
+    --weights1-4: 0.9817919593383302;
+    --weights2-1: -0.9809082670731147;
+    --weights2-2: -0.9816176935504328;
+    --weights2-3: 0.9815336794202348;
+    --weights2-4: 0.9815925299039976;
+
+
+    /* propogate */
+    --output1a: calc((var(--weights1-1) * var(--inputX)) + (var(--weights2-1) * var(--inputY)));
+    --output2a: calc((var(--weights1-2) * var(--inputX)) + (var(--weights2-2) * var(--inputY)));
+    --output3a: calc((var(--weights1-3) * var(--inputX)) + (var(--weights2-3) * var(--inputY)));
+    --output4a: calc((var(--weights1-4) * var(--inputX)) + (var(--weights2-4) * var(--inputY)));
+
+    --output1b: calc(max(0, var(--output1a)) + var(--output1bias));  
+    --output2b: calc(max(0, var(--output2a)) + var(--output2bias));    
+    --output3b: calc(max(0, var(--output3a)) + var(--output3bias));   
+    --output4b: calc(max(0, var(--output4a)) + var(--output4bias)); 
+
+    /* categorise */
+    --maxOut: max(var(--output1b), var(--output2b), var(--output3b), var(--output4b));
+
+    --output1c: max(calc(1 - ((var(--output1b) - var(--maxOut)) * (var(--output1b) - var(--maxOut)) * 1000000000)), 0);
+    --output2c: max(calc(1 - ((var(--output2b) - var(--maxOut)) * (var(--output2b) - var(--maxOut)) * 1000000000)), 0);
+    --output3c: max(calc(1 - ((var(--output3b) - var(--maxOut)) * (var(--output3b) - var(--maxOut)) * 1000000000)), 0);
+    --output4c: max(calc(1 - ((var(--output4b) - var(--maxOut)) * (var(--output4b) - var(--maxOut)) * 1000000000)), 0);
+}
+What, were you expecting thousands of lines of CSS? Are you disappointed?
+
+Well fear not, in the next article in this series I will level that up and try and do Optical Character Recognition (OCR) using similar techniques! (might be a few weeks for that one though lol)
+
+But, stick around, there are some interesting things we can learn from pushing CSS to it's limits even with this simple demo!
+
+The Demo
+The demo was actually harder to write than the Neural network (as I wanted the demo interface to be pure CSS / HTML too!).
+
+As you select a square in the first section of our pre-trained neural network, it then calculates which quadrant it believes that value was within (shown in the "Neural Network Prediction" section).a
+
+Each of the squares in the first section represents an x, y coordinate that lies between -1 and +1 on each axis. For example, the top left square is -0.8, 0.8 and the bottom right square is 0.8, -0.8.
+
+Finally if you scroll down you will see some values from the neural network to show what is going on "under the hood".
+
+Have a play and then we can have a look at some tricks I had to use to get the demo working!
+
+Note: You may have to scroll up and down to see the inputs vs predictions. It is probably best viewed on PC to minimise scrolling.
+
+
+
+A few interesting techniques
+OK so first let's start with the neural network itself.
+
+Sigmoid is out, say hello to ReLU!
+Our first problem, was that we can't use exp() (exponent) if we want our solution to work on most browsers, as CSS exp() is only supported on FireFox and Safari.
+
+This meant we can't create a sigmoid function for our outputs.
+
+So instead we need another method to replace our sigmoid function.
+
+Luckily there is another popular option here when working with Neural Networks...Rectified Linear Units (ReLUs).
+
+These simply ignore all values less than 0 and only return positive values.
+
+To implement this in CSS is (relatively) straight forward:
+ --ReLU: calc(max(0, var(--output)) + var(--outputBias));  
+And technically we don't even need calc here (but I always like to include it).
+
+What this does is say "give me the max value of "0" or our output + bias".
+
+If our output + bias is less than 0 then we return 0 (as that is the max number), otherwise we return our output + bias!
+
+Straight forward solution!
+
+Getting a normalised result
+There was another big problem to solve here, we need our Neural Network to be able to output it's guess as either a 1 (the guess) or a 0 (not the correct value).
+
+Unfortunately this isn't how Neural Networks work. In fact they output a certainty for all values.
+
+Something like:
+
+x < 0, y < 0: 0.845 <- the highest probability
+x > 0, y < 0: 0.283
+x < 0, y > 0: 0.154
+x > 0, y > 0: 0.319
+And we need to turn that into:
+
+x < 0, y < 0: 1 <- highest probability turns into a 1
+x > 0, y < 0: 0
+x < 0, y > 0: 0
+x > 0, y > 0: 0
+This is where this trick comes in:
+    --maxOut: max(var(--output1b), var(--output2b), var(--output3b), var(--output4b));
+
+    --output1c: max(calc(1 - ((var(--output1b) - var(--maxOut)) * (var(--output1b) - var(--maxOut)) * 1000000000)), 0);
+This might look complicated, so let's break it down.
+
+First we need to find the largest value that is outputted by our 4 output neurons.
+    --maxOut: max(var(--output1b), var(--output2b), var(--output3b), var(--output4b));
+So if our 4 output neurons were 20,11,16,4 then --maxOut would be 20.
+
+Then we use that number to do the following:
+
+subtract the max value from each output.
+do this again and multiply them together (this accounts for negative values).
+we then multiply this value by 1000000000 just to ensure that rounding is not a problem.
+then we subtract this value from "1".
+we then take the max value of either the output of that or 0.
+This works as if the value is the same as the max value we are essentially doing the following:
+  --output1c: 1 - ((20 - 20) * (20 - 20) * 1000000000)
+  --output1c: 1 - ((0) * (0) * 1000000000) /* which is 1 - 0 */
+  --output1c: max(1 - (0), 0) /* the max is 1 - 0 which is 1 */
+However if the value is less than the max value, the following happens (let's say max is 20 and our value is 14):
+  --output1c: 1 - ((14 - 20) * (14 - 20) * 1000000000)
+  --output1c: 1 - ((-6) * (-6) * 1000000000) /* which is 1 - (36 * 1000000000) */
+  --output1c: max(1 - (36000000000), 0) /* the max is 0 as it is greater than 1 - 36000000000 which is -35999999999 */
+This solves our categorisation issue!
+
+And that is all we needed to make a neural network (as the rest of the work is just multiplying biases together with inputs that should hopefully be self explanatory if you read my previous article).
+
+Outputting some values
+Here is one super useful trick I have not seen people use before.
+
+We can use CSS counter() in order to debug our "application".
+
+You may be wondering why we need this? Well if you try and get the value of a CSS calc expression you will soon run into problems. You will get the string back, not the actual value!
+// --example-var: calc(20 * 3)
+console.log(window.getComputedStyle(div).getPropertyValue('--example-var'))
+// console will output "calc(20 * 3)" instead of 60!
+So this is why we can use the counter trick in a pinch!
+
+Now, one thing to note is that counter() in CSS has some limitations. It only allows for integers.
+
+This is a problem as we are dealing with a lot of decimals.
+
+Luckily, as this is only for debugging, we have a workaround.
+
+But before we tackle that, let's show you how you can use CSS counters to grab some values from your CSS.
+#input1:after{
+    counter-reset: input1 var(--input1);
+    position: absolute;
+    content: "input 1: " counter(input1);
+}
+A couple of tricks here. First is that we need to actually output the value, so we use a pseudo element so we can utilise the content property (remember we can't use JS as it will just output the string value).
+
+The second is that we initialise our counter with the value of our CSS variable using counter-reset:.
+
+This means that if our --input1 has a value of 4, then our counter is (re)set to 4 as well.
+
+Now, as I said, counters use integers. This is a problem when we have decimals. The answer is straight forward (although imperfect). We can multiply our decimal by a large value to make it an integer.
+counter-reset: output1 calc(var(--output1b) * 100000);
+This quick hack moves our decimal place 6 positions to the right.
+
+As I said, it is ugly (and we could probably do some fancy tricks to get our decimal place...that might be a future fun experiment!) but it does give us some outputs.
+
+This is the technique used for the whole of the third section of the demo, if you are wondering how I outputted text there.
+
+Important note: Unfortunately content: values are not exposed to assistive technology. And this is the main reason why "CSS only" is for nothing more than fun most of the time.
+
+Do not use this trick in production, just save it for debugging when other methods fail.
+
+Anyway, that is the hack, I hope that one day it will help you out!
+
+Tricks for the demo itself
+I wanted the demo itself to also be CSS only. So to achieve this there are two tricks here.
+
+The input grid
+The first is the input "grid" we have created.
+
+Because we only want one value to be selected at a time (our x and y coordinates) I used a <input type="radio"> and then laid it out in a grid shape using floats and clears!
+
+But the main trick was that I wanted to still make this keyboard accessible, so I used a trick where I visually hide the input and then adjust the label appearance based on state.
+
+We then use the labels themselves in order to create our grid shape.
+/* our label is the actual grid square */
+label{
+    --wh: min(10vw, 60px);
+    width: var(--wh);
+    height: var(--wh);
+    display: block;
+    background-color: #bb0000;
+    float: left;
+    text-align: center;
+    font-size: 0.2vw;
+    outline: 1px solid #666;
+}
+
+input[type="radio"]{
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+input:checked + label{
+    background-color: #00ff00;
+    outline: 4px solid #000;
+    outline-offset: -4px;
+}
+
+input:focus + label{
+    outline: 8px solid #333;
+    outline-offset: -8px;
+    border-radius: 16px;
+}
+
+
+To achieve this we use the + operator. This grabs the next sibling (item on the same "level") that matches that selector.
+
+So by grabbing input:checked and then finding the next label to that input with the + operator, we are able to use our labels as the items we display, instead of the radio inputs themselves, all while making the radio inputs still accessible.
+
+Now, speaking of the radio inputs, I did mention that we need to visually hide them!
+input[type="radio"]{
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+The CSS above means that the input is still accessible to assistive technology and still focusable, but it does not take up a single pixel visually.
+
+Combining this with the previous trick we can create a grid of radio inputs!
+
+The output grid
+Ahhh the final trick here.
+
+If you remember earlier we created a way to make our neural network output a 1 or a 0.
+
+But how do we turn that into a "red" and "green" for each of the 4 quadrants depending on the output?
+
+This is where we can use a neat trick with linear gradients and opacity for our fill and outline respectively!
+--color1: #00ff00;
+--color2: #990000;
+--switch1: var(--color1) calc(100% * var(--output1c)), 
+                 var(--color2) 0;
+--switch1outline: rgba(0,0,0, calc(100% * var(--output1c)));
+For our --switch1, we want the square to either be colour red (if the value is 0) or coloured green (if the value is 1).
+
+By toggling the percentage of our first colour between either 100% (cover the square) or 0% (our secondary colour will take over) we get a neat way of toggling the colour.
+
+We use a similar technique on our outline, adjusting the alpha value (transparency) to either 100% (visible) or to 0% (invisible).
+
+By applying these styles to each of the 4 squares that make up our output grid as follows:
+#out-x-1y-1{
+    background: linear-gradient(var(--switch1));
+    outline: 4px solid var(--switch1outline);
+    outline-offset: -4px;
+}
+Then depending on which grid square has an output of "1" we either get a dark red square or a bright green square with a dark outline.
+
+// --- 
+
+Today we will make a ECMA module for generating crazy CSS like this, because CSS is quick, and has an update loop build in. we will make components and generators/factories in order to make shorthands that can be compiled into a CSS string, and then added to the DOM.
